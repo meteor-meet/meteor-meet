@@ -1,0 +1,31 @@
+<head>
+  <!-- Your title -->
+  <title>meteor-project</title>
+</head>
+
+<template name="Main">
+  {{> Nav }}
+  
+  <!-- yield will be replaced with the template you render -->
+  {{> yield }}
+  
+  {{> hello }}
+</template>
+
+<template name="Home">
+  <h1>Home</h1>
+  <p>Data Title: {{title}}</p>
+</template>
+
+<template name="One">
+  <h1>Page One</h1>
+</template>
+
+<template name="Two">
+  <h1>Page Two</h1>
+</template>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
