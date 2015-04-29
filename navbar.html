@@ -16,11 +16,13 @@
     <div class="navbar-collapse collapse">
         
         <!-- Menu links -->
+        {{#if loggedIn}}
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/one">Page one</a></li>
-            <li><a href="/two">Page two</a></li>
+            <li class="{{activePage '/'}}"><a href="/">Home</a></li>
+            <li class="{{activePage '/one'}}"><a href="/one">Page one</a></li>
+            <li class="{{activePage '/two'}}"><a href="/two">Page two</a></li>
         </ul>
+        {{/if}}
         
         <!-- Login buttons -->
         <ul class="nav navbar-nav navbar-right">

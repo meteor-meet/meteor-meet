@@ -17,6 +17,15 @@ if (Meteor.isClient) {
       Session.set('counter', Session.get('counter') + 1);
     }
   });
+
+  Template.Nav.helpers({
+    loggedIn: function() {
+      return Meteor.user();
+    },
+    activePage: function(path) {
+      return Router.current().route.path() == path ? 'active' : '';
+    }
+  });
 }
 
 if (Meteor.isServer) {
@@ -32,7 +41,11 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  this.render('Home', {data: {title: 'My Title'}});
+  if (!Meteor.user()) {
+    this.render('Intro');
+  } else {
+    this.render('Home', {data: {title: 'My Title'}});
+  }
 });
 
 Router.route('/one', function () {
