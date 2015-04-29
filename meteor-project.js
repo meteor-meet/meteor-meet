@@ -37,15 +37,20 @@ if (Meteor.isServer) {
 // Define your routes (The different pages)
 
 Router.configure({
-  layoutTemplate: 'Main'
+  layoutTemplate: 'Main',
+  // Send to the intro page if not logged in
+  onBeforeAction: function() {
+    // while (Meteor.loggingIn());
+    if (!Meteor.user()) {
+      this.render('Intro');
+    } else {
+      this.next();
+    }
+  }
 });
 
 Router.route('/', function () {
-  if (!Meteor.user()) {
-    this.render('Intro');
-  } else {
-    this.render('Home', {data: {title: 'My Title'}});
-  }
+  this.render('Home', {data: {title: 'My Title'}});
 });
 
 Router.route('/one', function () {
