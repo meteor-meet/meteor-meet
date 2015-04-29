@@ -6,27 +6,43 @@
 <template name="Main">
   {{> Nav }}
   
-  <!-- yield will be replaced with the template you render -->
   {{> yield }}
-  
-  {{> hello }}
-</template>
-
-<template name="Intro">
-  <h1>Landing page!</h1>
 </template>
 
 <template name="Home">
-  <h1>Home</h1>
-  <p>Data Title: {{title}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Home</h1>
+        <p>Data Title: {{title}}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="One">
-  <h1>Page One</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Page One</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        {{> hello }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="Two">
-  <h1>Page Two</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Page Two</h1>
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="hello">
